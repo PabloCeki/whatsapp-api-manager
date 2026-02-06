@@ -1,0 +1,18 @@
+{
+  "extends": ["plugin:prettier/recommended"],
+  "rules": {
+    "prettier/prettier": "error",
+    "no-throw-literal": "off",
+    "no-return-await": "off",
+    "arrow-parens": 0
+  },
+  "env": {
+    "mocha": true,
+    "node": true,
+    "es2021": true
+  },
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  }
+}

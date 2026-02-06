@@ -1,0 +1,43 @@
+{
+  "name": "whatsapp-api-manager",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "aws lambda update-function-code --function-name whatsapp-manager --zip-file fileb://lambda-function.zip --profile xuniv --region us-east-1",
+    "build:lambda": "node build.mjs"
+  },
+  "dependencies": {
+    "config": "^4.0.0",
+    "dotenv": "^17.0.1",
+    "uuid": "^11.1.0",
+    "@whiskeysockets/baileys": "^6.7.16",
+    "pino": "^9.6.0"
+  },
+  "devDependencies": {
+    "@aws-sdk/client-dynamodb": "^3.840.0",
+    "@aws-sdk/client-kms": "^3.848.0",
+    "@aws-sdk/client-secrets-manager": "^3.840.0",
+    "@aws-sdk/lib-dynamodb": "^3.984.0",
+    "@aws-sdk/util-dynamodb": "^3.840.0",
+    "@types/chai": "^5.2.2",
+    "@types/mocha": "^10.0.10",
+    "@types/sinon": "^17.0.4",
+    "adm-zip": "^0.5.16",
+    "archiver": "^7.0.1",
+    "chai": "^5.2.0",
+    "cors": "^2.8.5",
+    "esbuild": "^0.25.4",
+    "eslint": "^8.28.0",
+    "eslint-config-prettier": "8.5.0",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-prettier": "3.1.4",
+    "fakerator": "^0.3.6",
+    "mocha": "^11.7.1",
+    "nock": "^14.0.6",
+    "prettier": "2.0.5",
+    "sinon": "^21.0.0"
+  }
+}
