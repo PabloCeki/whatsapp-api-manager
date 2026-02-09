@@ -13,10 +13,12 @@
     "@whiskeysockets/baileys": "^6.7.16",
     "config": "^4.0.0",
     "dotenv": "^17.0.1",
+    "http-status-codes": "^2.3.0",
     "pino": "^9.6.0",
     "uuid": "^11.1.0"
   },
   "devDependencies": {
+    "@aws-sdk/client-apigatewaymanagementapi": "^3.985.0",
     "@aws-sdk/client-dynamodb": "^3.840.0",
     "@aws-sdk/client-kms": "^3.848.0",
     "@aws-sdk/client-secrets-manager": "^3.840.0",
