@@ -47,14 +47,18 @@ export const handler = async (event) => {
   console.log(`[!] Enviando mensaje para ${clientId} a ${targetJid}`);
 
   try {
-    const { state, saveCreds, hasValidSession } = await getDynamoDBAuth(clientId);
+    const { state, saveCreds, hasValidSession } = await getDynamoDBAuth(
+      clientId,
+    );
 
     if (!hasValidSession) {
       console.error(`[!] No existe sesión válida para ${clientId}`);
       return {
         statusCode: 401,
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ error: 'No valid session found. Please scan QR first.' }),
+        body: JSON.stringify({
+          error: 'No valid session found. Please scan QR first.',
+        }),
       };
     }
 
@@ -121,14 +125,18 @@ export const handler = async (event) => {
             settle({
               statusCode: 401,
               headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ error: 'Session expired. Please scan QR again.' }),
+              body: JSON.stringify({
+                error: 'Session expired. Please scan QR again.',
+              }),
             });
           } else {
             // Cualquier otro cierre (connection lost, replaced, etc.)
             settle({
               statusCode: 503,
               headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ error: `Connection closed (code: ${statusCode})` }),
+              body: JSON.stringify({
+                error: `Connection closed (code: ${statusCode})`,
+              }),
             });
           }
         }
@@ -227,7 +235,9 @@ async function getDynamoDBAuth(clientId) {
                 Item: {
                   clientId,
                   dataType: `${category}:${id}`,
-                  payload: JSON.parse(JSON.stringify(value, BufferJSON.replacer)),
+                  payload: JSON.parse(
+                    JSON.stringify(value, BufferJSON.replacer),
+                  ),
                   updatedAt: Date.now(),
                 },
               }),

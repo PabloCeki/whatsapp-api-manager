@@ -267,7 +267,7 @@ export class DynamoDBManager {
       TableName: tableName,
       ...params,
     };
-    
+
     if (queryParams.ExpressionAttributeValues) {
       queryParams.ExpressionAttributeValues = marshall(
         queryParams.ExpressionAttributeValues,

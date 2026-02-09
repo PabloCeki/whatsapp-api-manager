@@ -7,7 +7,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "deploy": "aws lambda update-function-code --function-name whatsapp-manager --zip-file fileb://lambda-function.zip --profile xuniv --region us-east-1",
-    "build:lambda": "node build.mjs"
+    "build:lambda": "node build.mjs",
+    "lint:fix": "eslint --ext .mjs src --fix"
   },
   "dependencies": {
     "@whiskeysockets/baileys": "^6.7.16",
